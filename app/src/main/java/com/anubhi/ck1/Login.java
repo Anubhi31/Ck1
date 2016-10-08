@@ -17,7 +17,7 @@ EditText password;
 
         super.onCreate(savedInstanceState);
 
-        SharedPreferences settings = getSharedPreferences("prefs",0);
+        final SharedPreferences settings = getSharedPreferences("prefs",0);
         boolean firstRun = settings.getBoolean("firstRun",true);
 
         if(firstRun){
@@ -30,6 +30,9 @@ EditText password;
                     String check,pass="ck1101";
                     check=password.getText().toString();
                     if(check.equals(pass)){
+                        SharedPreferences.Editor editor = settings.edit();
+                        editor.putBoolean("firstRun",false);
+                        editor.commit();
                         Intent i=new Intent(Login.this,MainActivity.class);
                         startActivity(i);
                         finish();
@@ -44,14 +47,11 @@ EditText password;
                 }
             });
 
-            SharedPreferences.Editor editor = settings.edit();
-            editor.putBoolean("firstRun",false);
-            editor.commit();
+
 
         }
         else{
             Intent i=new Intent(Login.this,MainActivity.class);
-
             startActivity(i);
             finish();
         }

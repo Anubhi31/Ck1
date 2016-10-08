@@ -247,6 +247,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     static int input,lifes=2;
     int index = 0;
     static long startstate=SystemClock.elapsedRealtime();
+    static boolean flag=true;
 
 
     @Override
@@ -273,8 +274,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bmap.setOnClickListener(this);
         lifetext.setText(String.valueOf(lifes));
         code.setText(codes[i]);
-
-        ch.setBase(settings.getLong("timer",0));
+        if(flag){
+            ch.setBase(SystemClock.elapsedRealtime());
+            flag=false;
+        }
+        else
+            ch.setBase(settings.getLong("timer",0));
         ch.start();
 
 
