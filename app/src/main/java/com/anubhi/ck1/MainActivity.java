@@ -246,7 +246,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     static int i=0;
     static int input,lifes=2;
     int index = 0;
-    static final long startstate=SystemClock.elapsedRealtime();
+    static long startstate=SystemClock.elapsedRealtime();
 
 
     @Override
