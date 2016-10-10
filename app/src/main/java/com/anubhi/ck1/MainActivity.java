@@ -14,7 +14,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -248,8 +247,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     int index = 0;
     long starting;
     static boolean flag=true;
-    String initials = "00:30";
     static long elapsedtime;
+    String initials="00:30";
 
 
 
@@ -272,7 +271,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         code=(TextView)findViewById(R.id.tv1);
         lifetext=(TextView)findViewById(R.id.lifetext);
         ch = (Chronometer)findViewById(R.id.chronometer);
@@ -280,23 +278,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bmap=(Button)findViewById(R.id.bmap);
         bin.setOnClickListener(this);
         bmap.setOnClickListener(this);
-        ch.setText(initials);
         lifetext.setText(String.valueOf(lifes));
         code.setText(codes[i]);
+        ch.setText(initials);
         int x = settings.getInt("flag",0);
         if(x==0) {
             starting = settings.getLong("starting", SystemClock.elapsedRealtime());
             elapsedtime = SystemClock.elapsedRealtime() - starting;
-
             ch.setBase(SystemClock.elapsedRealtime() - elapsedtime);
-            ch.start();
+
         }
         else{
             elapsedtime = settings.getLong("elapsed",0);
 
             ch.setBase(SystemClock.elapsedRealtime() - elapsedtime);
-            ch.start();
+
         }
+        ch.start();
 
 
 
@@ -351,30 +349,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-
-
-    /*class MyListener implements DialogInterface.OnClickListener {
-
-        @Override
-        public void onClick(DialogInterface dialogInterface, int i) {
-            if(i==-1)
-            {
-                Toast.makeText(MainActivity.this,"Ok pressed",Toast.LENGTH_LONG).show();
-            }
-        }
-    }*/
     @Override
     protected void onStop() {
 
         super.onStop();
         SharedPreferences settings = getSharedPreferences("prefs",0);
         SharedPreferences.Editor edit = settings.edit();
-        //System.out.println(starting + " " + ch.getBase()+" "+SystemClock.elapsedRealtime());
-        //edit.putLong("timer",SystemClock.elapsedRealtime());
         edit.putLong("starting",starting);
         edit.putInt("flag",0);
-        //edit.putLong("start",SystemClock.elapsedRealtime() - starting);
-        //System.out.println(SystemClock.elapsedRealtime()-settings.getLong("starting",0));
+
         edit.commit();
     }
 
@@ -384,13 +367,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onDestroy();
         SharedPreferences settings = getSharedPreferences("prefs",0);
         SharedPreferences.Editor edit = settings.edit();
-        //System.out.println(starting + " " + ch.getBase()+" "+SystemClock.elapsedRealtime());
-        //edit.putLong("timer",SystemClock.elapsedRealtime());
-
         edit.putLong("elapsed",elapsedtime);
         edit.putInt("flag",1);
-        //edit.putLong("start",SystemClock.elapsedRealtime() - starting);
-        //System.out.println(SystemClock.elapsedRealtime()-settings.getLong("starting",0));
         edit.commit();
     }
     void setCode()

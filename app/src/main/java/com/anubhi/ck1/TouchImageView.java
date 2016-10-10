@@ -16,17 +16,17 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 public class TouchImageView extends ImageView{
-    //Button b1=(Button)findViewById(R.id.button);
+
 
     Matrix matrix;
-    // We can be in one of these 3 states
+
     static final int NONE = 0;
     static final int DRAG = 1;
     static final int ZOOM = 2;
 
     int mode = NONE;
 
-    // Remember some things for zooming
+
     PointF last = new PointF();
     PointF start = new PointF();
     float minScale = 1f;
