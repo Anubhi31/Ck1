@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Login extends AppCompatActivity {
 EditText password;
     Button b;
@@ -27,9 +30,12 @@ EditText password;
             b.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    String check,pass="ck1101";
+                    String check;
+                    String pattern = "ck\\d\\d\\d\\d";
+                    Pattern p = Pattern.compile(pattern);
                     check=password.getText().toString();
-                    if(check.equals(pass)){
+                    Matcher m = p.matcher(check);
+                    if(m.find()){
                         SharedPreferences.Editor editor = settings.edit();
                         editor.putBoolean("firstRun",false);
                         editor.commit();
@@ -51,7 +57,7 @@ EditText password;
 
         }
         else{
-            System.out.println(firstRun);
+            //System.out.println(firstRun);
             Intent i=new Intent(Login.this,MainActivity.class);
             startActivity(i);
             finish();
