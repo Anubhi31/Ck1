@@ -51,6 +51,7 @@ EditText password;
 
         }
         else{
+            System.out.println(firstRun);
             Intent i=new Intent(Login.this,MainActivity.class);
             startActivity(i);
             finish();

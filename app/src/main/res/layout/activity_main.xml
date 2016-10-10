@@ -7,25 +7,26 @@
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
+    android:background="@color/background3"
     tools:context="com.anubhi.ck1.MainActivity"
-    android:focusableInTouchMode="false"
-    >
+    android:focusableInTouchMode="false">
 <ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_above="@+id/bin"
     android:id="@+id/scrollView"
-    android:layout_below="@+id/imageView2">
+    android:layout_below="@+id/imagetext">
 
     <TextView
         android:id="@+id/tv1"
         android:layout_width="fill_parent"
+        android:textColor="#FFFFFF"
         android:layout_height="400dp"
-        android:textSize="20sp"
+        android:textSize="22sp"
         android:layout_below="@+id/imageView2"
         android:scrollbars="vertical"
         android:scrollbarAlwaysDrawVerticalTrack="true"
-        android:background="@color/background"
+        android:background="@color/background1"
         android:layout_above="@+id/bin"
         android:scrollIndicators="right"
 
@@ -58,6 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/chronometer"
+        android:textColor="#FFFFFF"
         android:layout_alignParentLeft="true"
         android:layout_marginTop="5dp"
         android:textSize="47sp"
@@ -68,21 +70,19 @@
 
 
 </LinearLayout>
-
-    <TextView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/lifetext"
-        android:textSize="47sp"
-        android:lines="1"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_above="@+id/scrollView"
+        android:background="#FFFFFF"
+        android:id="@+id/imagetext"
         android:layout_alignParentTop="true"
-        />
+        android:layout_toLeftOf="@+id/Linear1"
+        android:layout_alignParentRight="true">
+
 
     <ImageView
         android:layout_width="wrap_content"
+        android:padding="0dp"
         android:layout_height="wrap_content"
         android:id="@+id/imageView2"
         android:src="@drawable/lifeicon"
@@ -90,5 +90,19 @@
         android:scaleY="0.5"
         android:layout_toLeftOf="@+id/lifetext"
         android:layout_toStartOf="@+id/lifetext"
-        android:layout_alignParentTop="true" />
+        android:layout_alignParentTop="true"
+        android:background="#FFFFFF"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lifetext"
+            android:textColor="#111111"
+            android:textSize="47sp"
+            android:lines="1"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_above="@+id/scrollView"
+            android:layout_alignParentTop="true"
+            android:background="#FFFFFF" />
+    </LinearLayout>
 </RelativeLayout>
