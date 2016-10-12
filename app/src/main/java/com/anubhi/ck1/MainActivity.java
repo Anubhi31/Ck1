@@ -5,16 +5,15 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.SystemClock;
+import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.InputFilter;
-import android.text.InputType;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -243,13 +242,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             " stop;\n","Congratulations\n\n\n\n\n\n\n\n\n\n"};
     static int[] output1={1,2,3,4,5,6,7};
     static int i=0;
-    static int input,lifes=2;
+    static int lifes=2;
     int index = 0;
-    long starting;
-    static boolean flag=true;
-    static long elapsedtime;
+    //long starting;
+    //static boolean flag=true;
+    //static long elapsedtime;
     String initials="00:30";
-
 
 
 
@@ -267,7 +265,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             y.putExtras(b);
             startActivity(y);
-            finish();
+            this.finish();
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -281,19 +279,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         lifetext.setText(String.valueOf(lifes));
         code.setText(codes[i]);
         ch.setText(initials);
-        int x = settings.getInt("flag",0);
-        if(x==0) {
-            starting = settings.getLong("starting", SystemClock.elapsedRealtime());
-            elapsedtime = SystemClock.elapsedRealtime() - starting;
-            ch.setBase(SystemClock.elapsedRealtime() - elapsedtime);
+        //int x = settings.getInt("flag",0);
+        //if(x==0) {
+            //starting = settings.getLong("starting", SystemClock.elapsedRealtime());
+            //elapsedtime = SystemClock.elapsedRealtime() - starting;
+            //ch.setBase(SystemClock.elapsedRealtime() - elapsedtime);
 
+        //}
+        //else{
+           // elapsedtime = settings.getLong("elapsed",0);
+            //ch.setBase(SystemClock.elapsedRealtime() - elapsedtime);
+
+        //}
+        boolean first=settings.getBoolean("firstOpen",true);
+        if(first==true){
+            SharedPreferences.Editor edit=settings.edit();
+            edit.putBoolean("firstOpen",false);
+            edit.putLong("starting",System.currentTimeMillis());
+            edit.commit();
         }
-        else{
-            elapsedtime = settings.getLong("elapsed",0);
-
-            ch.setBase(SystemClock.elapsedRealtime() - elapsedtime);
-
-        }
+        long starting = settings.getLong("starting",0);
+        long elapsed = System.currentTimeMillis()-starting;
+        ch.setBase(SystemClock.elapsedRealtime()-elapsed);
         ch.start();
 
 
@@ -302,29 +309,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         if(view.getId()==R.id.bin) {
-            final EditText ed;
-            final AlertDialog.Builder dbox = new AlertDialog.Builder(this);
+            AlertDialog.Builder dbox = new AlertDialog.Builder(this);
+            LayoutInflater inflater = getLayoutInflater();
+            View dialogView = inflater.inflate(R.layout.dialog_box,null);
+            dbox.setView(dialogView);
+            final EditText ed=(EditText)dialogView.findViewById(R.id.inputText);
             dbox.setTitle("Location");
-            dbox.setMessage("Enter the location code according to map: ");
-            LinearLayout layout = new LinearLayout(this);
-            layout.setOrientation(LinearLayout.VERTICAL);
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            params.setMargins(400, 30, 400, 50);
-            ed = new EditText(MainActivity.this);
-            ed.setInputType(InputType.TYPE_CLASS_NUMBER);
-            ed.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
-
-            layout.addView(ed, params);
-            dbox.setView(layout);
             dbox.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
 
                     try {
                         ed.setError("");
-                        input = Integer.parseInt(ed.getText().toString());
-                        setCode();
+                        int input = Integer.parseInt(ed.getText().toString());
+                        setCode(input);
                     } catch (Exception e) {
                         Toast.makeText(MainActivity.this, "Invalid Entry", Toast.LENGTH_SHORT).show();
 
@@ -349,7 +347,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    @Override
+    /*@Override
     protected void onStop() {
 
         super.onStop();
@@ -357,11 +355,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         SharedPreferences.Editor edit = settings.edit();
         edit.putLong("starting",starting);
         edit.putInt("flag",0);
-
         edit.commit();
-    }
+    }*/
 
-    @Override
+    /*@Override
     protected void onDestroy() {
 
         super.onDestroy();
@@ -370,8 +367,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         edit.putLong("elapsed",elapsedtime);
         edit.putInt("flag",1);
         edit.commit();
-    }
-    void setCode()
+    }*/
+    void setCode(int input)
     {
 
         if(input==output1[i] && lifes>0 ){

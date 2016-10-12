@@ -1,8 +1,6 @@
 package com.anubhi.ck1;
 
-/**
- * Created by Anubhi on 9/25/2016.
- */
+
 import android.content.Context;
 import android.graphics.Matrix;
 import android.graphics.PointF;
