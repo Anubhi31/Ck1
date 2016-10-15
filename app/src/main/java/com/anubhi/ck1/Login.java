@@ -4,16 +4,19 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Login extends AppCompatActivity {
-EditText password;
+    EditText password;
     Button b;
+    static String check;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,15 +38,19 @@ EditText password;
                     Pattern p = Pattern.compile(pattern);
                     check=password.getText().toString();
                     Matcher m = p.matcher(check);
-                    if(m.find()){
+                    if(m.find() && (check.charAt(2)=='1' || check.charAt(2)=='2' || check.charAt(2)=='3')&& check.length()==6){
                         SharedPreferences.Editor editor = settings.edit();
                         editor.putBoolean("firstRun",false);
-                        editor.commit();
+                        editor.putInt("set",Integer.parseInt(check.substring(2,3)));
+                        editor.putInt("userId",Integer.parseInt(check.substring(3)));
+                        editor.apply();
                         Intent i=new Intent(Login.this,MainActivity.class);
+                        Bundle b=new Bundle();
+                        b.putInt("set",settings.getInt("set",Integer.parseInt(check.substring(2,3))));
+                        b.putInt("userId",settings.getInt("userId",Integer.parseInt(check.substring(3))));
+                        i.putExtras(b);
                         startActivity(i);
                         finish();
-
-
                     }
                     else
                     {
@@ -57,12 +64,37 @@ EditText password;
 
         }
         else{
-            //System.out.println(firstRun);
             Intent i=new Intent(Login.this,MainActivity.class);
+            Bundle b=new Bundle();
+            b.putInt("set",settings.getInt("set",0));
+            b.putInt("userId",settings.getInt("userId",0));
+            i.putExtras(b);
             startActivity(i);
             finish();
         }
         }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.menu_main,menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            Intent in=new Intent(Login.this,AboutUs.class);
+            startActivity(in);
+            return true;
+        }
+        else if(id==R.id.rules){
+            Intent in=new Intent(Login.this,Rules.class);
+            startActivity(in);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 
     }

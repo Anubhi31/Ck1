@@ -12,7 +12,7 @@
     android:focusableInTouchMode="false">
 <ScrollView
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_above="@+id/bin"
     android:id="@+id/scrollView"
     android:layout_below="@+id/imagetext">
@@ -24,11 +24,13 @@
         android:layout_height="400dp"
         android:textSize="22sp"
         android:layout_below="@+id/imageView2"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
         android:scrollbars="vertical"
         android:scrollbarAlwaysDrawVerticalTrack="true"
         android:background="@color/background1"
         android:layout_above="@+id/bin"
-        android:scrollIndicators="right"
+
 
         />
 </ScrollView>

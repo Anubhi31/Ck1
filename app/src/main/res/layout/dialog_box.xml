@@ -4,42 +4,42 @@
     android:id="@+id/dialog_rl"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:padding="10dp"
+    android:paddingLeft="23dp"
+    android:paddingBottom="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="5dp"
     tools:context=".MainActivity"
-
     android:orientation="vertical"
-
-
-
     >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         >
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/loctext"
-    android:textStyle="bold"
-    android:textColor="@color/colorAccent"
-    android:text="Enter the location code according to map:"
-    android:layout_alignParentLeft="true"
-    android:layout_above="@+id/inputText"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/loctext"
+            android:textSize="18sp"
+            android:text="Enter the location code according to map(1-15): "
+            android:layout_alignParentLeft="true"
+            />
 
         <EditText
-            android:layout_width="100dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:foregroundGravity="center_horizontal"
             android:id="@+id/inputText"
             android:inputType="number"
-            android:layout_marginBottom="25dp"
+            android:layout_below="@+id/loctext"
+            android:layout_marginTop="5dp"
+            android:cursorVisible="true"
+            android:maxLength="2"
             android:layout_centerHorizontal="true"
             android:layout_centerInParent="true"
-            android:textSize="25sp"
+            android:textSize="15sp"
             />
 
 

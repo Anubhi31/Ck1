@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 
 public class TouchImageView extends ImageView{
