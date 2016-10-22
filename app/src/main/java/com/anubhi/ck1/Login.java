@@ -14,9 +14,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Login extends AppCompatActivity {
-    EditText password;
-    Button b;
-    static String check;
+    private EditText password;
+    private Button b;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,20 +34,20 @@ public class Login extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     String check;
-                    String pattern = "ck\\d\\d\\d\\d";
+                    String pattern = "pl@\\d\\d\\d\\d";
                     Pattern p = Pattern.compile(pattern);
                     check=password.getText().toString();
                     Matcher m = p.matcher(check);
-                    if(m.find() && (check.charAt(2)=='1' || check.charAt(2)=='2' || check.charAt(2)=='3')&& check.length()==6){
+                    if(m.find() && (check.charAt(3)=='1' || check.charAt(3)=='2' || check.charAt(3)=='3')&& check.length()==7){
                         SharedPreferences.Editor editor = settings.edit();
                         editor.putBoolean("firstRun",false);
-                        editor.putInt("set",Integer.parseInt(check.substring(2,3)));
-                        editor.putInt("userId",Integer.parseInt(check.substring(3)));
+                        editor.putInt("set",Integer.parseInt(check.substring(3,4)));
+                        editor.putInt("userId",Integer.parseInt(check.substring(4)));
                         editor.apply();
                         Intent i=new Intent(Login.this,MainActivity.class);
                         Bundle b=new Bundle();
-                        b.putInt("set",settings.getInt("set",Integer.parseInt(check.substring(2,3))));
-                        b.putInt("userId",settings.getInt("userId",Integer.parseInt(check.substring(3))));
+                        b.putInt("set",settings.getInt("set",Integer.parseInt(check.substring(3,4))));
+                        b.putInt("userId",settings.getInt("userId",Integer.parseInt(check.substring(4))));
                         i.putExtras(b);
                         startActivity(i);
                         finish();

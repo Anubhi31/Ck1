@@ -16,11 +16,11 @@
     android:layout_above="@+id/bin"
     android:id="@+id/scrollView"
     android:layout_below="@+id/imagetext">
-
     <TextView
         android:id="@+id/tv1"
         android:layout_width="fill_parent"
         android:textColor="#FFFFFF"
+
         android:layout_height="400dp"
         android:textSize="22sp"
         android:layout_below="@+id/imageView2"
@@ -75,36 +75,35 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#FFFFFF"
         android:id="@+id/imagetext"
         android:layout_alignParentTop="true"
         android:layout_toLeftOf="@+id/Linear1"
         android:layout_alignParentRight="true">
 
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:padding="0dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView2"
-        android:src="@drawable/lifeicon"
-        android:scaleX="0.5"
-        android:scaleY="0.5"
-        android:layout_toLeftOf="@+id/lifetext"
-        android:layout_toStartOf="@+id/lifetext"
-        android:layout_alignParentTop="true"
-        android:background="#FFFFFF"/>
+        <ImageView
+            android:layout_width="65dp"
+            android:padding="0dp"
+            android:layout_height="65dp"
+            android:id="@+id/imageView2"
+            android:src="@drawable/life"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:layout_toLeftOf="@+id/lifetext"
+            android:layout_toStartOf="@+id/lifetext"
+            android:layout_alignParentTop="true"
+            tools:ignore="ContentDescription" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/lifetext"
-            android:textColor="#111111"
+            android:textColor="#FFFFFF"
             android:textSize="47sp"
             android:lines="1"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_above="@+id/scrollView"
             android:layout_alignParentTop="true"
-            android:background="#FFFFFF" />
+             />
     </LinearLayout>
 </RelativeLayout>

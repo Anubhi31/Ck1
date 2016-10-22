@@ -18,13 +18,21 @@
         android:scaleType="centerCrop"/>
 
     <ImageView
-        android:layout_width="350dp"
-        android:layout_height="150dp"
+        android:layout_width="300dp"
+        android:layout_height="125dp"
         android:id="@+id/splash"
         android:background="@drawable/ckl"
         android:layout_marginBottom="168dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
+    <ImageView
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:id="@+id/ts"
+        android:background="@drawable/tsl"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitCenter"/>
 
 </RelativeLayout>

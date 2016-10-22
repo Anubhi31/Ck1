@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Code Kriegers: The Treasure Hunt</string>
+    <string name="rule1">1. Each code snippet will lead you to a numbered checkpoint. Use the map whenever required</string>
+    <string name="rule2">2. On reaching a checkpoint,search for its no. in the map as well as around you.</string>
+    <string name="rule3">3. Enter the correct checkpoint no. in the input.</string>
+    <string name="note">Note:-</string>
+    <string name="note1">You have one wrong attempt for each checkpoint input.</string>
+    <string name="note2">The timer will stop only when you reach the final checkpoint.</string>
 </resources>

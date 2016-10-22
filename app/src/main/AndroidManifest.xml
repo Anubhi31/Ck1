@@ -34,7 +34,7 @@
         <activity android:name=".End" />
         <activity android:name=".Winner" />
         <activity android:name=".AboutUs" />
-        <activity android:name=".Rules"></activity>
+        <activity android:name=".Rules"/>
     </application>
 
 </manifest>

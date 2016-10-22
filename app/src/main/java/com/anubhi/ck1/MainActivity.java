@@ -22,12 +22,14 @@ import android.widget.Toast;
 import static android.widget.Toast.LENGTH_LONG;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    static Button bin,bmap;
-    static TextView code,lifetext;
-    static Chronometer ch=null;
-    ScrollView sv;
-    static String[] codes;
-    static String[] codes1={"If(! Facing  MANIT’s SBI)\n" +
+    private static Button bin;
+    private static Button bmap;
+    private static TextView code;
+    private static TextView lifetext;
+    private static Chronometer ch=null;
+    private ScrollView sv;
+    private static String[] codes;
+    private static String[] codes1={"If(! Facing  MANIT’s SBI)\n" +
             "\tReposition yourself and face its front door;\n" +
             "\n" +
             "If (Facing  MANIT’s SBI)\n" +
@@ -41,10 +43,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "\n" +
             "int  step=0;\n" +
             "While(step!=8)\n" +
-            "{\n" +
+            " {\n" +
             "\tKeep moving  forward;\n" +
             "\tstep++\n" +
-            "}\n" +
+            " }\n" +
             "If(a gate found on left)\n" +
             "\tEnter into the gate;\n" +
             "\n" +
@@ -72,13 +74,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "If(A white board with Rajbhasha written on it is spotted){\n" +
             "Face opposite to the board;\t//No turning back now \n" +
             "Enter the gate which is not in front of you;\n" +
-            "}\n" +
-            "Int count=0;\n" +
+            " }\n" +
+            "int count=0;\n" +
             "While(count!=13){\n" +
             "　　Keep walking forward;\n" +
             "　　If(gate is found on the left)\n" +
             "　　\t\tCount++;\n" +
-            "}\n" +
+            " }\n" +
             "Take 1st left;\n" +
             "Count=0;\n" +
             "While(count!=21){\n" +
@@ -86,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "　　\t\tCount++;\n" +
             "　　If(red pillar on left is spotted)\n" +
             "　　\t\tCount++;\n" +
-            "}\n" +
+            " }\n" +
             "Spot(The nearest asphalt)\n" +
             "If(!Standing against the channel gate)\n" +
             "　　\tUse the asphalt for moving forward;\n" +
@@ -98,14 +100,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "　　While(count!=3){\n" +
             "　　\t\tIf(Grilled entrances are crossed)\n" +
             "　　\t\t\tCount++;\n" +
-            "}\n" +
-            "}\n" +
+            "  }\n" +
+            " }\n" +
             "Get on the asphalt;\n" +
             "If(!obstacles found on the path)\n" +
             "　　Move forward;\n" +
             "While(crossroad not reached)\n" +
             "　　Move ahead;\n" +
-            "look for a blue wall; \t\t//preferably a part of a building\n","#include<stdio.h>\n" +
+            "look for a blue wall; \t\t//preferably a part of a building\n",/*3*/"#include<stdio.h>\n" +
             "void main()\n" +
             "{\n" +
             "int a;\n" +
@@ -141,17 +143,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "go through road in direction opposite to barriers;\n" +
             "if(building on left==visible)\n" +
             "\tprintf(\"u have reached ur destination\");\n" +
-            "}\n" +
-            "\n","If(!facing ROLTA)\n" +
+            " }\n" +
+            "\n",/*4*/"If(!facing ROLTA)\n" +
             "\tFace ROLTA;\n" +
             "If(facing ROLTA)\n" +
             "    turn left;           \n" +
             "printf(“ant\\r sun\\r pet\\b\\b on\\b rat\\b\\b ch”);   /*move to the printed place*/\n" +
             "Enter closest building;\n" +
             "do \n" +
-            "{ \n" +
+            " { \n" +
             "   walk straight;\n" +
-            "}while(!frame of 1st educational minister)\n" +
+            " }while(!frame of 1st educational minister)\n" +
             "a=get(mtricsehy) /*get -> Anagram Solver returns the decoded string*/\n" +
             " while(a)\t\t//while Area associated to a is not crossed.\n" +
             "   walk forward till u get a right way up;\n" +
@@ -163,7 +165,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "merge(X,Y,Z);   //Eg: if X=5,Y=6,Z=7 merge result is 567\n" +
             "combine(A,merge);\t\t//Name of the destination.\n" +
             "\n" +
-            "\n","if(!facing A-206)\n" +
+            "\n",/*5*/"if(!facing A-206)\n" +
             "\tface A-206;\n" +
             "if(facing A-206)\n" +
             "\tTake right;\n" +
@@ -191,13 +193,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "\tmove forward;\n" +
             "\n" +
             "\n" +
-            "\n","if(facing counter no. 26)\n" +
+            "\n",/*6*/"if(facing counter no. 26)\n" +
             "{\n" +
             "solve the quadratic equation x2 -31x+84;\n" +
             "Goto counter no. R2 //R2 is that root of quadratic which is less than 17,face it;        \n" +
             "if(facing counter no. R2)\n" +
             "turn 180 deg.;\n" +
-            "move ahead and search for FACULTY ROOM on left;\n" +
+            "move ahead and search for first FACULTY ROOM on left;\n" +
             "if(faculty room found)\n" +
             "  go there and face the door;\n" +
             "  turn 90 deg.  clockwise;\n" +
@@ -231,7 +233,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "  move ahead;\n" +
             "  \n" +
             "  stop;\n" +
-            "}\n" +
+            " }\n" +
             "\n" +
             "\n","search for the portrait of a man playing drums.\n" +
             "if(facing the wall)\n" +
@@ -244,7 +246,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "\t    \n" +
             "if(an entrance to the main road on left is visible )\n" +
             " stop;\n","\n\n\n\n\n\n\n\n\n\n"};
-    String codes2[]={"#include <stdio.h>\n" +
+    private String[] codes2={"#include <stdio.h>\n" +
             "void main()\n" +
             "{\n" +
             "int a,r1,r2,a1[50],b,x,r,s;\n" +
@@ -269,9 +271,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "   rotate 270 deg. clockwise;\n" +
             "go straight;\n" +
             "swap(a1[1],a1[2]);\n" +
-            "printf(“dustbin no. of dustbin 1 is d1=%d “,((a1[1]*10+a1[2])/2)*3);\n" +
-            "search(dustbin 1);\n" +
-            "printf(“store a 3 digit no. written on it in b”);\n" +
+            "search(Nescafe);\n" +
             "if(facing mid point of wooden benches)\n" +
             "   turn 30 deg. clockwise;\n" +
             "search(white iron gate);\n" +
@@ -282,13 +282,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "search(area with so many chairs);\n" +
             "start(from window of couner1);   /*let it be w1*/\n" +
             "x=odd number on w10;\n" +
-            "while(b){\n" +
-            "r=b%n;\n" +
-            "\tb=b/10;\n" +
-            "s=s+r;\n" +
-            "}\n" +
-            "printf(“your destination is %d on some window”,(a+x-s-1)/2);\n" +
-            "}\n","if(facing counter no. 26)\n" +
+            "int c,d;\n"+
+            "/*10 shows decimal no. and 2 shows binary no.*/\n"+
+            "c in base 10=100001 in base 2;\n"+
+            "d in base 10=111 in base 2;\n"+
+            "printf(“your destination is %d on some window”,c-d);\n" +
+            "}\n",/*2*/"if(facing counter no. 26)\n" +
             "{\n" +
             "   solve the quadratic equation x2 -31x+84;\n" +
             "   goto counter no. R2;//R2 is the root of quadratic which is less than 17,face it;        \n" +
@@ -296,18 +295,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "if(facing counter no. R2)\n" +
             "        turn 180;\n" +
             "   \n" +
-            "move ahead until FACULTY ROOM on exact left is visible.\n" +
+            "move ahead until first FACULTY ROOM on exact left is visible.\n" +
             "if(faculty room on left is visible)\n" +
             "\tturn right;\n" +
             "move ahead until black road is not reached;\n" +
             "        turn left;\n" +
             "count=0;\n" +
             "while(count!=12)\n" +
-            "{\n" +
+            " {\n" +
             "\tmove ahead;\n" +
             "        if(date tree on right)\n" +
             "\t\tcount++;\n" +
-            "}    \t\n" +
+            " }    \t\n" +
             "move to the place where you cannot park your vehicle;\n","search for the portrait  of a man playing drums.\t\n" +
             "if(facing the wall)\n" +
             "\tturn 180 deg. ; \n" +
@@ -321,12 +320,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "\n" +
             "turn left and reach the main road;\n" +
             "if(electrical pole on right spotted )\n" +
-            "{\n" +
+            " {\n" +
             "\tfollow the electrical wiring ;\n" +
             "\tif(a junction of wires is reached)\n" +
             "\t\tfollow the wiring with greater no. of wires;\n" +
             "\tmove ahead and search for giant shades;\n" +
-            "}\n" +
+            " }\n" +
             "\n" +
             "if(facing shades)\n" +
             "\tturn right;\n" +
@@ -348,13 +347,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "If(A white board with Rajbhasha written on it is spotted){\n" +
             "\tFace opposite to the board;\t//No turning back now\n" +
             "\tEnter the gate which is not in front of you;\n" +
-            "}\n" +
-            "Int count=0;\n" +
+            " }\n" +
+            "int count=0;\n" +
             "While(count!=13){\n" +
             "\tKeep walking forward;\n" +
             "\tIf(gate is found on the left)\n" +
             "\tCount++;\n" +
-            "}\n" +
+            " }\n" +
             "Take 1st left;\n" +
             "Count=0;\n" +
             "While(count!=21){\n" +
@@ -362,11 +361,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "\t\tCount++;\n" +
             "\tIf(pillar on left is spotted)\n" +
             "\t\tCount++;\n" +
-            "}\n" +
+            " }\n" +
             "Spot(The nearest asphalt){\n" +
             "\tIf(!Channel gate immediately in front)\n" +
             "\t\tUse it for moving forward;\n" +
-            "}\n" +
+            " }\n" +
             "Face the channel gate in front of you;\n" +
             "Count=0;\n" +
             "While(! Facing the biggest archive){If(Hurdle is not reached)\n" +
@@ -417,7 +416,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "continue moving on the road;\n" +
             "if(a building on left==visible)\n" +
             "printf(\"u have reached ur destination\");\n" +
-            "}\n","If(facing ROLTA)\n" +
+            " }\n","If(facing ROLTA)\n" +
             "    turn left;\n" +
             "printf(“pen\\b\\boil\\rpot\\brun\\b\\bchoco\\b\\b\\b”); \\*go to the printed place*\\\n" +
             "\n" +
@@ -430,17 +429,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "int j;\n" +
             "\n" +
             "if (i== (80<90))\n" +
-            "{ \n" +
+            " { \n" +
             "\tfor(j=position of floor; j=get;j++)\n" +
             "        \twalk up;\n" +
-            "}\n" +
+            " }\n" +
             "\n" +
             "go straight;\n","int x=10;\n" +
             "if(facing A 206)\n" +
             "\tturn right;\n" +
             "do{\n" +
             "       walk forward;\n" +
-            "}while(! Walk over bridge) \n" +
+            " }while(! Walk over bridge) \n" +
             "\n" +
             "3x+2y=30; \\* a =x intercept ,b=y intercept*\\\n" +
             "m=a*b;\n" +
@@ -454,7 +453,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "else\n" +
             "\tretrace your path;\n",""};
 
-    String codes3[]={"if(! Facing  MANIT’s SBI)\n" +
+    private String[] codes3={"if(! Facing  MANIT’s SBI)\n" +
             "\tReposition yourself and face its front door;\n" +
             "\n" +
             "if (Facing  MANIT’s SBI)\n" +
@@ -480,7 +479,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "\tContinue walking and look for it in all directions;\n" +
             "\n" +
             "if(brand  new construction found )\n" +
-            "\tstop;\n","if(!facing ROLTA)\n" +
+            "\tstop;\n",/*2*/"if(!facing ROLTA)\n" +
             "\tface ROLTA;\n" +
             "if(facing ROLTA)\n" +
             "\tturn 270 degree clockwise;\n" +
@@ -489,7 +488,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "\tWalk straight;\n" +
             "\n" +
             "turn 90 degree clockwise ;\n" +
-            "while(bridge is not found) \n" +
+            "while(cross road is not found) \n" +
             "           walk forward ;\n" +
             "\n" +
             "turn (left);\n" +
@@ -504,7 +503,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "x=sort(F,L,E,T);\n" +
             "turn x;\n" +
             "while(water cooler is not found)\n" +
-            "\twalk straight;\n","if(facing water cooler )\n" +
+            "\twalk straight;\n"+
+            "int y=no. of bones in human body;\n"+
+            "Search(A room no. y);",/*3*/"if(facing water cooler )\n" +
             "\tTake left;\n" +
             "\n" +
             "walkForward();\n" +
@@ -519,13 +520,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "\n" +
             "do {\n" +
             "\tmove ahead and look in all directions for a picture of bridge;\n" +
-            "}while(you don't see a picture of a bridge);\n" +
+            " }while(you don't see a picture of a bridge);\n" +
             "if(facing bridge)\n" +
             "\ttake a left;\n" +
             "\n" +
-            "if(you see  \"art court\" written around you )\n" +
-            "  if(facing the text ART COURT)\n" +
-            "     turn left and move ahead until you reach a dead end;\n","if(!Facing counter no. 26)\n" +
+            "moveForward();\n" +
+            "  if(dead end reached)\n" +
+            "     turn left;\n"+
+            "search(Your Destination);\n",/*4*/"if(!Facing counter no. 26)\n" +
             "\tFace counter no. 26;\n" +
             "solve the quadratic equation x^2 - 31x + 84;\n" +
             "goto counter no. R1 //R1 is that root of quadratic which is greater than 17\n" +
@@ -540,7 +542,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "    move ahead;\n" +
             "    if(date tree on right)\n" +
             "       count++;\n" +
-            "}\n" +
+            " }\n" +
             "turn 90 degrees anticlockwise;\n" +
             "move ahead until you face a room with a board saying \"Faculty Room\",stand below the board;\n" +
             "turn 90 degrees clockwise;\n" +
@@ -549,12 +551,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "\tmove ahead;\n" +
             "\tif(pillar on right)\n" +
             "\t\tcount++;\n" +
-            "}\n" +
+            " }\n" +
             "turn 90 degrees clockwise;\n" +
             "printf(\" are u thirsty??\");\n" +
             "scanf(\"%c\",&n);\t\t//what is your response to that question? yes or no?\n" +
             "if(n==yes)\n" +
-            "{\n" +
+            " {\n" +
             "\tgoto water cooler;\n" +
             "\tif(facing water cooler)\n" +
             "\t\tturn 180 degrees;\n" +
@@ -574,7 +576,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "\tturn right;\n" +
             "\twhile(first channel gate is not reached)\n" +
             "\t\tmove ahead;\n" +
-            "}\n" +
+            " }\n" +
             "else\n" +
             "{\n" +
             "    turn 90 degrees anticlockwise;\n" +
@@ -591,7 +593,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "\t}\n" +
             "\twhile(first channel gate is not reached)\n" +
             "\t\tmove ahead;\n" +
-            "}\n","search for the portrait  of a man playing drums.\t\n" +
+            " }\n","search for the portrait  of a man playing drums.\t\n" +
             "if(facing the wall)\n" +
             "\tturn 180 deg. ; \n" +
             "\n" +
@@ -604,12 +606,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "\n" +
             "turn left and reach the main road;\n" +
             "if(electrical pole on right spotted )\n" +
-            "{\n" +
+            " {\n" +
             "\tfollow the electrical wiring ;\n" +
             "\tif(a junction of wires is reached)\n" +
             "\t\tfollow the wiring with greater no. of wires;\n" +
             "\tmove ahead and search for giant shades;\n" +
-            "}\n" +
+            " }\n" +
             "\n" +
             "if(facing shades)\n" +
             "\tturn right;\n" +
@@ -634,14 +636,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "{\n" +
             "\tFace opposite to the board;\t//No turning back now\n" +
             "\tEnter the gate which is not in front of you;\n" +
-            "}\n" +
-            "Int count=0;\n" +
+            " }\n" +
+            "int count=0;\n" +
             "While(count!=8)\n" +
-            "{\n" +
+            " {\n" +
             "\tKeep walking forward;\n" +
             "\tIf(gate is found on the left)\n" +
             "\t\tcount++;\n" +
-            "}\n" +
+            " }\n" +
             "Take 1st right;\n" +
             "Take 1st left;\n" +
             "While(Gate on the road is not found)\n" +
@@ -657,17 +659,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "if(facing Nescafe){\n" +
             "\tsearch(barrier);\n" +
             "\tcross(barrier);\n" +
-            "}\n" +
+            " }\n" +
             "take left;\n" +
             "go to parking;\n" +
             "search(iron gate);\n" +
             "count(total no. of triangles that can be found in the iron gate);\n" +
             "printf(“enter through the gate”);\n" +
-            "search(an ac in the area);  //successful search will return 1.\n" +
-            "if(search==1)\n" +
-            "\tprintf(“note  company of the ac found”);\n" +
-            "else \n" +
-            "\tcontinue search;\n" +
             "x=(age eligible for voting)+1;\n" +
             "search(dustbin with no. 2x);\n" +
             "printf(“take pic of the dustbin”);\n" +
@@ -682,16 +679,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "\ttake right;\n" +
             "\n" +
             "while(path==visible)\n" +
-            "{\n" +
+            " {\n" +
             "\tgo straight;\n" +
             "\tprintf(“note down no. of chairs present in this straight path”);\n" +
-            "}\n" +
+            " }\n" +
             "turn left;\n" +
             "go straight;\n" +
             "while(going straight){\n" +
             "\tlook down on right side;\n" +
             "\tprintf(“note colors of 2 kind of flowers visible”);\n" +
-            "}\n" +
+            " }\n" +
             "s1=first letter of colors in alphabetical order;\n" +
             "keep looking left wall also;\n" +
             "printf(“note the name of lab on 1st blue board and store in s2(eliminating -)”);\n" +
@@ -710,22 +707,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "\tr=a%10;\n" +
             "\ta=a/10;\n" +
             "\ts=s+r;\n" +
-            "}\n" +
+            " }\n" +
             "c=s-(strlen(s4)-1)/6);\n" +
             "printf(“your destination is %c0%d”,i,c);\n" +
             "printf(“KRIEGER HAS FOUND OUT ROUTE TO THE NEXT LEVEL”);\n" +
-            "}\n",""};
-    static int[] output1={1,2,3,4,5,6,7};
-    static int[] output2={1,2,3,4,5,6,7};
-    static int[] output3={1,2,3,4,5,6,7};
-    static int output[];
-    static int i=0;
-    static int lifes=2;
-    int index = 0;
-    String initials="00:30";
-    static SharedPreferences settings;
-    static Bundle b;
-    static int set;
+            " }\n",""};
+    private static int[] output1={3,9,10,4,14,13,5};
+    private static int[] output2={14,13,3,9,10,4,5};
+    private static int[] output3={10,4,14,13,3,9,5};
+    private static int[] output;
+    private static int i=0;
+    private static int lifes=2;
+    private int index = 0;
+    private String initials="00:30";
+    private static SharedPreferences settings;
+    private static Bundle b;
+    private static int set;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -860,10 +857,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    void setCode(int input)
+    private void setCode(int input)
     {
 
-        if(input==output1[i] && lifes>0 ){
+        if(input==output[i] && lifes>0 ){
             i++;
             code.setText(codes[i]);
             sv.scrollTo(0,0);

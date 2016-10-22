@@ -1,15 +1,17 @@
 package com.anubhi.ck1;
-
 import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.os.Bundle;
-
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-
+import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 public class Splash extends AppCompatActivity {
@@ -38,6 +40,9 @@ public class Splash extends AppCompatActivity {
         ImageView iv = (ImageView) findViewById(R.id.splash);
         iv.clearAnimation();
         iv.startAnimation(anim);
+        ImageView iv2=(ImageView)findViewById(R.id.ts);
+        Animation animation= AnimationUtils.loadAnimation(this,R.anim.fade_out);
+        iv2.setAnimation(animation);
         splashTread = new Thread() {
             @Override
             public void run() {
@@ -48,14 +53,15 @@ public class Splash extends AppCompatActivity {
                         sleep(100);
                         waited += 100;
                     }
-                    Intent intent = new Intent(Splash.this,Login.class);
+                    Intent intent = new Intent(Splash.this,
+                            Login.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);
-                    finish();
+                    Splash.this.finish();
                 } catch (InterruptedException e) {
 // do nothing
                 } finally {
-                   finish();
+                    Splash.this.finish();
                 }
             }
 
@@ -64,4 +70,5 @@ public class Splash extends AppCompatActivity {
     }
 
 }
+
 
